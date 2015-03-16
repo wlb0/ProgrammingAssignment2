@@ -22,12 +22,11 @@ makeCacheMatrix <- function(x = matrix()) {
 ## If the inverse has already calculated (in cache),retrieve inverse from cache.
 
 cacheSolve <- function(x, ...) {
-    m <- x$get()            # cached matrix
-    minv <- x$getinv()      # cached matrix inverse
+    m <- x$getinv()      # cached matrix inverse
     
-    if(!is.null(minv)) {    # check that an inverse is cached
+    if(!is.null(m)) {    # check that an inverse is cached
         message("getting cached data")
-        return(minv)        # return cached inverse
+        return(m)        # return cached inverse
     }
     
     # where there's no cached inverse, solve for inverse
